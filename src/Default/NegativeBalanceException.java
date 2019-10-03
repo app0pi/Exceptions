@@ -2,9 +2,10 @@ package Default;
 
 import java.io.*;
 import java.math.*;
+import java.text.*;
 
 public class NegativeBalanceException extends Exception {
-	private double negativeBalance;
+	private BigDecimal negativeBalance;
 	private String message;
 
 	public NegativeBalanceException() {
@@ -12,8 +13,9 @@ public class NegativeBalanceException extends Exception {
 		message = "Error: negative balance";
 	}
 	
-	public NegativeBalanceException(double negativeBalance) throws FileNotFoundException {
-		message = "Amount exceeds balance by " + negativeBalance;
+	public NegativeBalanceException(BigDecimal negativeBalance) throws FileNotFoundException {
+		this.negativeBalance = negativeBalance;
+		message = "Amount exceeds balance by " + negativeBalance.intValue();
 		File file = new File("logfile.txt");
 		PrintWriter printWriter = new PrintWriter(file);
 		printWriter.println(message);
@@ -22,7 +24,12 @@ public class NegativeBalanceException extends Exception {
 
 	@Override
 	public String toString() {
+		//NumberFormat nf = NumberFormat.getCurrencyInstance(negativeBalance);
 		return "Balance of " + negativeBalance + " not allowed";
 	}
 	
+	@Override
+	public String getMessage() {
+		return message;
+	}
 }

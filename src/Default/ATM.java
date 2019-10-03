@@ -8,7 +8,8 @@ public class ATM {
 	private BankAccount account;
 	
 	public ATM() {
-		account = new BankAccount(500);
+		BigDecimal b = new BigDecimal("500");
+		account = new BankAccount(b);
 	}
 
 	public void handleTransactions() throws NegativeBalanceException, FileNotFoundException {

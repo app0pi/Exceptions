@@ -2,30 +2,31 @@ package Default;
 
 import java.io.*;
 import java.math.*;
+import java.text.*;
 
 public class BankAccount {
-	private double balance;
+	private BigDecimal balance;
 
-	public BankAccount(double balance) {
+	public BankAccount(BigDecimal balance) {
 		super();
 		this.balance = balance;
 	}
 	
 	public void withdraw(BigDecimal amount) throws NegativeBalanceException, FileNotFoundException {
-		if(amount.intValue() > balance) {
+		if(amount.intValue() > balance.intValue()) {
 			throw new NegativeBalanceException(balance);
 		}
 		else {
-			balance = balance - amount.intValue();
+			balance = new BigDecimal(balance.intValue() - amount.intValue());
 		}
 	}
 	
 	public void quickWithdraw(BigDecimal amount) throws NegativeBalanceException, FileNotFoundException {
-		if(amount.intValue() > balance) {
+		if(amount.intValue() > balance.intValue()) {
 			throw new NegativeBalanceException();
 		}
 		else {
-			balance = balance - amount.intValue();
+			balance = new BigDecimal(balance.intValue() - amount.intValue());
 		}
 	}
 
