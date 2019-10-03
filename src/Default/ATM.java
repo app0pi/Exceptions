@@ -1,5 +1,9 @@
 package Default;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class ATM {
 	private BankAccount account;
 	
@@ -7,7 +11,7 @@ public class ATM {
 		account = new BankAccount(500);
 	}
 
-	public void handleTransactions() throws NegativeBalanceException {
+	public void handleTransactions() throws NegativeBalanceException, FileNotFoundException {
 		try{
 			account.withdraw(600);
 		}
@@ -15,7 +19,7 @@ public class ATM {
 			account.withdraw(200);
 		}
 	}
-	public static void main (String[] args) throws NegativeBalanceException {
+	public static void main (String[] args) throws NegativeBalanceException, FileNotFoundException {
 		ATM atm = new ATM();
 		atm.handleTransactions();
 		System.out.println(atm.account.getBalance());

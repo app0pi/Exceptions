@@ -1,5 +1,7 @@
 package Default;
 
+import java.io.FileNotFoundException;
+
 public class BankAccount {
 	private double balance;
 
@@ -8,9 +10,9 @@ public class BankAccount {
 		this.balance = balance;
 	}
 	
-	public void withdraw(double amount) throws NegativeBalanceException {
+	public void withdraw(double amount) throws NegativeBalanceException, FileNotFoundException {
 		if(amount > balance) {
-			throw new NegativeBalanceException();
+			throw new NegativeBalanceException(balance);
 		}
 		else {
 			balance = balance - amount;
