@@ -14,12 +14,19 @@ public class ATM {
 			account.withdraw(600);
 		}
 		catch(NegativeBalanceException e){
-			account.withdraw(200);
+			System.out.println(e);
+			System.out.println(e.getMessage());
+		}
+		try{
+			account.quickWithdraw(600);
+		}
+		catch(NegativeBalanceException e){
+			System.out.println(e);
+			System.out.println(e.getMessage());
 		}
 	}
 	public static void main (String[] args) throws NegativeBalanceException, FileNotFoundException {
 		ATM atm = new ATM();
 		atm.handleTransactions();
-		System.out.println(atm.account.getBalance());
 	}
 }
