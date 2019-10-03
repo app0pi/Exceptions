@@ -11,21 +11,21 @@ public class BankAccount {
 		this.balance = balance;
 	}
 	
-	public void withdraw(double amount) throws NegativeBalanceException, FileNotFoundException {
-		if(amount > balance) {
+	public void withdraw(BigDecimal amount) throws NegativeBalanceException, FileNotFoundException {
+		if(amount.intValue() > balance) {
 			throw new NegativeBalanceException(balance);
 		}
 		else {
-			balance = balance - amount;
+			balance = balance - amount.intValue();
 		}
 	}
 	
-	public void quickWithdraw(double amount) throws NegativeBalanceException, FileNotFoundException {
-		if(amount > balance) {
+	public void quickWithdraw(BigDecimal amount) throws NegativeBalanceException, FileNotFoundException {
+		if(amount.intValue() > balance) {
 			throw new NegativeBalanceException();
 		}
 		else {
-			balance = balance - amount;
+			balance = balance - amount.intValue();
 		}
 	}
 

@@ -12,15 +12,16 @@ public class ATM {
 
 	public void handleTransactions() throws NegativeBalanceException, FileNotFoundException {
 		try{
-			BigDecimal b;
-			account.withdraw(600);
+			BigDecimal b = new BigDecimal("600");
+			account.withdraw(b);
 		}
 		catch(NegativeBalanceException e){
 			System.out.println(e);
 			System.out.println(e.getMessage());
 		}
 		try{
-			account.quickWithdraw(600);
+			BigDecimal b = new BigDecimal("600");
+			account.quickWithdraw(b);
 		}
 		catch(NegativeBalanceException e){
 			System.out.println(e);
