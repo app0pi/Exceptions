@@ -24,7 +24,6 @@ public class NegativeBalanceException extends Exception {
 
 	@Override
 	public String toString() {
-		//NumberFormat nf = NumberFormat.getCurrencyInstance(negativeBalance);
 		return "Balance of " + negativeBalance + " not allowed";
 	}
 	
