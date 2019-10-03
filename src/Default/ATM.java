@@ -1,6 +1,7 @@
 package Default;
 
 import java.io.*;
+import java.math.*;
 
 public class ATM {
 	private BankAccount account;
@@ -11,6 +12,7 @@ public class ATM {
 
 	public void handleTransactions() throws NegativeBalanceException, FileNotFoundException {
 		try{
+			BigDecimal b;
 			account.withdraw(600);
 		}
 		catch(NegativeBalanceException e){
