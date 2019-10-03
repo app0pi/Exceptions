@@ -1,8 +1,6 @@
 package Default;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class ATM {
 	private BankAccount account;
